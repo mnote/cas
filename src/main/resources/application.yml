@@ -40,4 +40,47 @@ cas.adminPagesSecurity.adminRoles[0]: ROLE_ADMIN
 # CAS Authentication Credentials
 #
 # cas.authn.accept.users: casuser::Mellon
+cas.authn.accept.users: 
 
+cas.authn.jdbc.query[0].user: root
+cas.authn.jdbc.query[0].password: root
+cas.authn.jdbc.query[0].driverClass: com.mysql.jdbc.Driver
+cas.authn.jdbc.query[0].url: jdbc:mysql://127.0.0.1:3306/rtms?useUnicode=true&characterEncoding=utf-8&connectionCollation=utf8_general_ci&autoReconnect=true&useSSL=false
+cas.authn.jdbc.query[0].dialect: org.hibernate.dialect.MySQLDialect
+
+# cas.authn.jdbc.query[0].failFastTimeout: 1
+# cas.authn.jdbc.query[0].isolationLevelName: ISOLATION_READ_COMMITTED
+# cas.authn.jdbc.query[0].healthQuery: 
+# cas.authn.jdbc.query[0].isolateInternalQueries: false
+# cas.authn.jdbc.query[0].leakThreshold: 10
+# cas.authn.jdbc.query[0].propagationBehaviorName: PROPAGATION_REQUIRED
+# cas.authn.jdbc.query[0].batchSize: 1
+# cas.authn.jdbc.query[0].defaultCatalog: 
+# cas.authn.jdbc.query[0].defaultSchema: 
+# cas.authn.jdbc.query[0].ddlAuto: create-drop
+
+# cas.authn.jdbc.query[0].autocommit: false
+# cas.authn.jdbc.query[0].idleTimeout: 5000
+
+# cas.authn.jdbc.query[0].dataSourceName: 
+# cas.authn.jdbc.query[0].dataSourceProxy: false
+
+# Hibernate-specific properties (i.e. `hibernate.globally_quoted_identifiers`)
+# cas.authn.jdbc.query[0].properties.propertyName: propertyValue
+
+# cas.authn.jdbc.query[0].pool.suspension: false
+# cas.authn.jdbc.query[0].pool.minSize: 6
+# cas.authn.jdbc.query[0].pool.maxSize: 18
+# cas.authn.jdbc.query[0].pool.maxWait: 2000
+# cas.authn.jdbc.query[0].pool.timeoutMillis: 1000
+
+
+cas.authn.jdbc.query[0].sql: SELECT pass FROM User WHERE name = ?
+cas.authn.jdbc.query[0].fieldPassword: pass
+# cas.authn.jdbc.query[0].fieldExpired: 
+# cas.authn.jdbc.query[0].fieldDisabled: 
+# cas.authn.jdbc.query[0].principalAttributeList: sn,cn:commonName,givenName
+
+cas.authn.jdbc.query[0].passwordEncoder.type: DEFAULT
+cas.authn.jdbc.query[0].passwordEncoder.characterEncoding: UTF-8
+cas.authn.jdbc.query[0].passwordEncoder.encodingAlgorithm: MD5
