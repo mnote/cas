@@ -12,3 +12,7 @@ build/
 bin/
 *.iml
 *.log
+.vscode/
+src/main/resources/*.cer
+src/main/resources/*.jks
+src/main/resources/thekeystore
