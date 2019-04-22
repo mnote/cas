@@ -2,18 +2,18 @@ server.port: 8443
 
 server.ssl.enabled: false
 # server.ssl.key-store: file:/etc/cas/thekeystore
-server.ssl.key-store: classpath:thekeystore
-server.ssl.key-store-password: changeit
-server.ssl.key-password: changeit
+# server.ssl.key-store: classpath:thekeystore
+# server.ssl.key-store-password: changeit
+# server.ssl.key-password: changeit
 
 # Enable HTTP connections for the embedded Tomcat container
-cas.server.http.port: 8080
+cas.server.http.port: 8088
 cas.server.http.protocol: org.apache.coyote.http11.Http11NioProtocol
 cas.server.http.enabled: true
 
 # Use HTTP and IP access
-cas.server.name: http://127.0.0.1:8080
-cas.server.prefix: http://127.0.0.1:8080/cas
+cas.server.name: http://127.0.0.1:8088
+cas.server.prefix: http://127.0.0.1:8088/cas
 
 cas.tgc.secure: false
 
@@ -40,14 +40,17 @@ cas.adminPagesSecurity.adminRoles[0]: ROLE_ADMIN
 ##
 # CAS Authentication Credentials
 #
-# cas.authn.accept.users: casuser::Mellon
-cas.authn.accept.users: 
+cas.authn.accept.users: casuser::Mellon
 
-cas.authn.jdbc.query[0].user: root
-cas.authn.jdbc.query[0].password: root
-cas.authn.jdbc.query[0].driverClass: com.mysql.jdbc.Driver
-cas.authn.jdbc.query[0].url: jdbc:mysql://127.0.0.1:3306/rtms?useUnicode=true&characterEncoding=utf-8&connectionCollation=utf8_general_ci&autoReconnect=true&useSSL=false
-cas.authn.jdbc.query[0].dialect: org.hibernate.dialect.MySQLDialect
+#---------------
+#cas.authn.accept.users: 
+
+# cas.authn.jdbc.query[0].user: root
+# cas.authn.jdbc.query[0].password: root
+# cas.authn.jdbc.query[0].driverClass: com.mysql.jdbc.Driver
+# cas.authn.jdbc.query[0].url: jdbc:mysql://127.0.0.1:3306/rtms?useUnicode=true&characterEncoding=utf-8&connectionCollation=utf8_general_ci&autoReconnect=true&useSSL=false
+# cas.authn.jdbc.query[0].dialect: org.hibernate.dialect.MySQLDialect
+#---------------
 
 # cas.authn.jdbc.query[0].failFastTimeout: 1
 # cas.authn.jdbc.query[0].isolationLevelName: ISOLATION_READ_COMMITTED
@@ -75,13 +78,17 @@ cas.authn.jdbc.query[0].dialect: org.hibernate.dialect.MySQLDialect
 # cas.authn.jdbc.query[0].pool.maxWait: 2000
 # cas.authn.jdbc.query[0].pool.timeoutMillis: 1000
 
+#---------------
+#cas.authn.jdbc.query[0].sql: SELECT pass FROM User WHERE name = ?
+#cas.authn.jdbc.query[0].fieldPassword: pass
+#---------------
 
-cas.authn.jdbc.query[0].sql: SELECT pass FROM User WHERE name = ?
-cas.authn.jdbc.query[0].fieldPassword: pass
 # cas.authn.jdbc.query[0].fieldExpired: 
 # cas.authn.jdbc.query[0].fieldDisabled: 
 # cas.authn.jdbc.query[0].principalAttributeList: sn,cn:commonName,givenName
 
-cas.authn.jdbc.query[0].passwordEncoder.type: DEFAULT
-cas.authn.jdbc.query[0].passwordEncoder.characterEncoding: UTF-8
-cas.authn.jdbc.query[0].passwordEncoder.encodingAlgorithm: MD5
+#---------------
+#cas.authn.jdbc.query[0].passwordEncoder.type: DEFAULT
+#cas.authn.jdbc.query[0].passwordEncoder.characterEncoding: UTF-8
+#cas.authn.jdbc.query[0].passwordEncoder.encodingAlgorithm: MD5
+#---------------
